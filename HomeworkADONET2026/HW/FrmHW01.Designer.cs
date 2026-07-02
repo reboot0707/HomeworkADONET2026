@@ -65,9 +65,9 @@
             this.label1.Location = new System.Drawing.Point(36, 25);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 23);
+            this.label1.Size = new System.Drawing.Size(211, 23);
             this.label1.TabIndex = 23;
-            this.label1.Text = "Connected NW DB";
+            this.label1.Text = "ConnectDB: NorthWind";
             // 
             // listBoxProductsCat
             // 
