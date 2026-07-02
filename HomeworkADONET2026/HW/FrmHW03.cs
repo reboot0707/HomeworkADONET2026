@@ -26,6 +26,15 @@ namespace HomeworkADONET2026.HW
                 DateTime startdate = dateTimePickerStart.Value;
                 DateTime enddate = dateTimePickerEnd.Value;
 
+                dataGridViewResult.AutoGenerateColumns = false;
+                dataGridViewResult.Columns.Clear();
+                dataGridViewResult.Columns.Add(new DataGridViewImageColumn
+                {
+                    DataPropertyName = "LargePhoto",
+                    HeaderText = "照片",
+                    ImageLayout = DataGridViewImageCellLayout.Zoom
+                });
+                dataGridViewResult.RowTemplate.Height = 200;
                 //dvPPD.RowFilter = $"SellStartDate >= {startdate:MM/dd/yyyy} AND SellEndDate <= {enddate:MM/dd/yyyy}";
                 dataGridViewResult.DataSource = dvPPD;
 

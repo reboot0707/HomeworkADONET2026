@@ -1703,7 +1703,7 @@ namespace HomeworkADONET2026 {
             
             private global::System.Data.DataColumn columnProductPhotoID;
             
-            private global::System.Data.DataColumn columnThumbNailPhoto;
+            private global::System.Data.DataColumn columnLargePhoto;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
@@ -1780,9 +1780,9 @@ namespace HomeworkADONET2026 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public global::System.Data.DataColumn ThumbNailPhotoColumn {
+            public global::System.Data.DataColumn LargePhotoColumn {
                 get {
-                    return this.columnThumbNailPhoto;
+                    return this.columnLargePhoto;
                 }
             }
             
@@ -1823,7 +1823,7 @@ namespace HomeworkADONET2026 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public ProdPhotoDateRow AddProdPhotoDateRow(string Name, System.DateTime SellStartDate, System.DateTime SellEndDate, int ProductPhotoID, byte[] ThumbNailPhoto) {
+            public ProdPhotoDateRow AddProdPhotoDateRow(string Name, System.DateTime SellStartDate, System.DateTime SellEndDate, int ProductPhotoID, byte[] LargePhoto) {
                 ProdPhotoDateRow rowProdPhotoDateRow = ((ProdPhotoDateRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Name,
@@ -1831,7 +1831,7 @@ namespace HomeworkADONET2026 {
                         SellStartDate,
                         SellEndDate,
                         ProductPhotoID,
-                        ThumbNailPhoto};
+                        LargePhoto};
                 rowProdPhotoDateRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProdPhotoDateRow);
                 return rowProdPhotoDateRow;
@@ -1859,7 +1859,7 @@ namespace HomeworkADONET2026 {
                 this.columnSellStartDate = base.Columns["SellStartDate"];
                 this.columnSellEndDate = base.Columns["SellEndDate"];
                 this.columnProductPhotoID = base.Columns["ProductPhotoID"];
-                this.columnThumbNailPhoto = base.Columns["ThumbNailPhoto"];
+                this.columnLargePhoto = base.Columns["LargePhoto"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1875,8 +1875,8 @@ namespace HomeworkADONET2026 {
                 base.Columns.Add(this.columnSellEndDate);
                 this.columnProductPhotoID = new global::System.Data.DataColumn("ProductPhotoID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProductPhotoID);
-                this.columnThumbNailPhoto = new global::System.Data.DataColumn("ThumbNailPhoto", typeof(byte[]), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnThumbNailPhoto);
+                this.columnLargePhoto = new global::System.Data.DataColumn("LargePhoto", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLargePhoto);
                 this.columnName.AllowDBNull = false;
                 this.columnName.MaxLength = 50;
                 this.columnProductID.AutoIncrement = true;
@@ -2845,17 +2845,17 @@ namespace HomeworkADONET2026 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public byte[] ThumbNailPhoto {
+            public byte[] LargePhoto {
                 get {
                     try {
-                        return ((byte[])(this[this.tableProdPhotoDate.ThumbNailPhotoColumn]));
+                        return ((byte[])(this[this.tableProdPhotoDate.LargePhotoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("資料表 \'ProdPhotoDate\' 中資料行 \'ThumbNailPhoto\' 的值是 DBNull。", e);
+                        throw new global::System.Data.StrongTypingException("資料表 \'ProdPhotoDate\' 中資料行 \'LargePhoto\' 的值是 DBNull。", e);
                     }
                 }
                 set {
-                    this[this.tableProdPhotoDate.ThumbNailPhotoColumn] = value;
+                    this[this.tableProdPhotoDate.LargePhotoColumn] = value;
                 }
             }
             
@@ -2873,14 +2873,14 @@ namespace HomeworkADONET2026 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public bool IsThumbNailPhotoNull() {
-                return this.IsNull(this.tableProdPhotoDate.ThumbNailPhotoColumn);
+            public bool IsLargePhotoNull() {
+                return this.IsNull(this.tableProdPhotoDate.LargePhotoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public void SetThumbNailPhotoNull() {
-                this[this.tableProdPhotoDate.ThumbNailPhotoColumn] = global::System.Convert.DBNull;
+            public void SetLargePhotoNull() {
+                this[this.tableProdPhotoDate.LargePhotoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4939,7 +4939,7 @@ SELECT ProductID, ProductPhotoID, [Primary], ModifiedDate FROM Production.Produc
             tableMapping.ColumnMappings.Add("SellStartDate", "SellStartDate");
             tableMapping.ColumnMappings.Add("SellEndDate", "SellEndDate");
             tableMapping.ColumnMappings.Add("ProductPhotoID", "ProductPhotoID");
-            tableMapping.ColumnMappings.Add("ThumbNailPhoto", "ThumbNailPhoto");
+            tableMapping.ColumnMappings.Add("LargePhoto", "LargePhoto");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -4956,12 +4956,11 @@ SELECT ProductID, ProductPhotoID, [Primary], ModifiedDate FROM Production.Produc
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT prodP.Name,prodP.ProductID,prodP.SellStartDate,prodP.SellEndDate,prodPP.ProductPhotoID,prodPhoto.ThumbNailPhoto 
-FROM Production.Product as prodP
-join Production.ProductProductPhoto AS prodPP
-on prodP.ProductID = prodPP.ProductID 
-join Production.ProductPhoto as prodPhoto
-on prodPP.ProductPhotoID = prodPhoto.ProductPhotoID";
+            this._commandCollection[0].CommandText = @"SELECT          prodP.Name, prodP.ProductID, prodP.SellStartDate, prodP.SellEndDate, prodPP.ProductPhotoID, 
+                            prodPhoto.LargePhoto
+FROM              Production.Product AS prodP INNER JOIN
+                            Production.ProductProductPhoto AS prodPP ON prodP.ProductID = prodPP.ProductID INNER JOIN
+                            Production.ProductPhoto AS prodPhoto ON prodPP.ProductPhotoID = prodPhoto.ProductPhotoID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
