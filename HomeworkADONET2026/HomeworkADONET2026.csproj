@@ -47,6 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSetAW.cs">
+      <DependentUpon>DataSetAW.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetAW.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetAW.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSetNW.cs">
       <DependentUpon>DataSetNW.xsd</DependentUpon>
     </Compile>
@@ -60,6 +68,24 @@
     </Compile>
     <Compile Include="HW\FrmHW02.Designer.cs">
       <DependentUpon>FrmHW02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HW\FrmHW03.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HW\FrmHW03.Designer.cs">
+      <DependentUpon>FrmHW03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HW\FrmHW04_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HW\FrmHW04_Login.Designer.cs">
+      <DependentUpon>FrmHW04_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HW\FrmHW05_Album.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HW\FrmHW05_Album.Designer.cs">
+      <DependentUpon>FrmHW05_Album.cs</DependentUpon>
     </Compile>
     <Compile Include="MainPage.cs">
       <SubType>Form</SubType>
@@ -81,6 +107,12 @@
     <EmbeddedResource Include="HW\FrmHW02.resx">
       <DependentUpon>FrmHW02.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HW\FrmHW03.resx">
+      <DependentUpon>FrmHW03.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HW\FrmHW04_Login.resx">
+      <DependentUpon>FrmHW04_Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,6 +125,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="DataSetAW.xsc">
+      <DependentUpon>DataSetAW.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetAW.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetAW.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetAW.xss">
+      <DependentUpon>DataSetAW.xsd</DependentUpon>
+    </None>
     <None Include="DataSetNW.xsc">
       <DependentUpon>DataSetNW.xsd</DependentUpon>
     </None>
