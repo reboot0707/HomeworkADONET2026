@@ -30,12 +30,12 @@
         {
             this.label3 = new System.Windows.Forms.Label();
             this.lblResult = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonProdNameFilt = new System.Windows.Forms.Button();
             this.dataGridViewNW = new System.Windows.Forms.DataGridView();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonUnitPriceFilt = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -69,15 +69,15 @@
             this.lblResult.TabIndex = 132;
             this.lblResult.Text = "結果 ( 100 筆)";
             // 
-            // button2
+            // buttonProdNameFilt
             // 
-            this.button2.Location = new System.Drawing.Point(649, 98);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(172, 38);
-            this.button2.TabIndex = 131;
-            this.button2.Text = "Search";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonProdNameFilt.Location = new System.Drawing.Point(649, 98);
+            this.buttonProdNameFilt.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.buttonProdNameFilt.Name = "buttonProdNameFilt";
+            this.buttonProdNameFilt.Size = new System.Drawing.Size(172, 38);
+            this.buttonProdNameFilt.TabIndex = 131;
+            this.buttonProdNameFilt.Text = "Search";
+            this.buttonProdNameFilt.UseVisualStyleBackColor = true;
             // 
             // dataGridViewNW
             // 
@@ -116,15 +116,16 @@
             this.label5.TabIndex = 127;
             this.label5.Text = "UnitPrice:";
             // 
-            // button3
+            // buttonUnitPriceFilt
             // 
-            this.button3.Location = new System.Drawing.Point(649, 52);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(172, 38);
-            this.button3.TabIndex = 126;
-            this.button3.Text = "Search";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonUnitPriceFilt.Location = new System.Drawing.Point(649, 52);
+            this.buttonUnitPriceFilt.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.buttonUnitPriceFilt.Name = "buttonUnitPriceFilt";
+            this.buttonUnitPriceFilt.Size = new System.Drawing.Size(172, 38);
+            this.buttonUnitPriceFilt.TabIndex = 126;
+            this.buttonUnitPriceFilt.Text = "Search";
+            this.buttonUnitPriceFilt.UseVisualStyleBackColor = true;
+            this.buttonUnitPriceFilt.Click += new System.EventHandler(this.buttonUnitPriceFilt_Click);
             // 
             // label4
             // 
@@ -145,7 +146,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(226, 61);
+            this.textBox1.Location = new System.Drawing.Point(226, 59);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(137, 25);
@@ -167,12 +168,12 @@
             this.ClientSize = new System.Drawing.Size(1128, 823);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblResult);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonProdNameFilt);
             this.Controls.Add(this.dataGridViewNW);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.buttonUnitPriceFilt);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -190,12 +191,12 @@
 
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblResult;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonProdNameFilt;
         private System.Windows.Forms.DataGridView dataGridViewNW;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonUnitPriceFilt;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;

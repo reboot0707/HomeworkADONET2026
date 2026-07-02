@@ -22,5 +22,11 @@ namespace HomeworkADONET2026.HW
             this.productsTableAdapter1.Fill(this.dataSetNW1.Products);
             this.dataGridViewNW.DataSource = this.dataSetNW1.Products;
         }
+
+        private void buttonUnitPriceFilt_Click(object sender, EventArgs e)
+        {
+            //DataView dvUnitPrice = new DataView(this.dataSetNW1.Products);
+            //dvUnitPrice.RowFilter = @"UnitPrice >= @min and UnitPrice >= @max";
+        }
     }
 }
