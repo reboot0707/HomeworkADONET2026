@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.buttonOpenHW01 = new System.Windows.Forms.Button();
+            this.buttonOpenHW02 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonOpenHW01
@@ -41,11 +42,22 @@
             this.buttonOpenHW01.UseVisualStyleBackColor = true;
             this.buttonOpenHW01.Click += new System.EventHandler(this.buttonOpenHW01_Click);
             // 
+            // buttonOpenHW02
+            // 
+            this.buttonOpenHW02.Location = new System.Drawing.Point(53, 126);
+            this.buttonOpenHW02.Name = "buttonOpenHW02";
+            this.buttonOpenHW02.Size = new System.Drawing.Size(293, 73);
+            this.buttonOpenHW02.TabIndex = 1;
+            this.buttonOpenHW02.Text = "作業2";
+            this.buttonOpenHW02.UseVisualStyleBackColor = true;
+            this.buttonOpenHW02.Click += new System.EventHandler(this.buttonOpenHW02_Click);
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonOpenHW02);
             this.Controls.Add(this.buttonOpenHW01);
             this.Name = "MainPage";
             this.Text = "MainPage";
@@ -56,6 +68,7 @@
         #endregion
 
         private System.Windows.Forms.Button buttonOpenHW01;
+        private System.Windows.Forms.Button buttonOpenHW02;
     }
 }
 

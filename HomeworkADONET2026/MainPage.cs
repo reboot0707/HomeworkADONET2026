@@ -22,5 +22,10 @@ namespace HomeworkADONET2026
         {
             (new FrmHW01()).Show();
         }
+
+        private void buttonOpenHW02_Click(object sender, EventArgs e)
+        {
+            (new FrmHW02()).Show();
+        }
     }
 }

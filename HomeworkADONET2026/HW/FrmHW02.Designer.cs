@@ -31,7 +31,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblResult = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewNW = new System.Windows.Forms.DataGridView();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -39,18 +39,21 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dataSetNW1 = new HomeworkADONET2026.DataSetNW();
+            this.productsTableAdapter1 = new HomeworkADONET2026.DataSetNWTableAdapters.ProductsTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNW)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetNW1)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(23, 21);
+            this.label3.Location = new System.Drawing.Point(47, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(165, 15);
+            this.label3.Size = new System.Drawing.Size(74, 15);
             this.label3.TabIndex = 133;
-            this.label3.Text = "DisConnected - NWDataSet";
+            this.label3.Text = "NWDataSet";
             // 
             // lblResult
             // 
@@ -76,16 +79,16 @@
             this.button2.Text = "Search";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridViewNW
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(40, 227);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 31;
-            this.dataGridView1.Size = new System.Drawing.Size(1060, 559);
-            this.dataGridView1.TabIndex = 130;
+            this.dataGridViewNW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewNW.Location = new System.Drawing.Point(40, 227);
+            this.dataGridViewNW.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.dataGridViewNW.Name = "dataGridViewNW";
+            this.dataGridViewNW.RowHeadersWidth = 62;
+            this.dataGridViewNW.RowTemplate.Height = 31;
+            this.dataGridViewNW.Size = new System.Drawing.Size(1060, 559);
+            this.dataGridViewNW.TabIndex = 130;
             // 
             // textBox3
             // 
@@ -107,7 +110,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(77, 53);
+            this.label5.Location = new System.Drawing.Point(70, 67);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 15);
             this.label5.TabIndex = 127;
@@ -115,10 +118,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(649, 48);
+            this.button3.Location = new System.Drawing.Point(649, 52);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(153, 38);
+            this.button3.Size = new System.Drawing.Size(172, 38);
             this.button3.TabIndex = 126;
             this.button3.Text = "Search";
             this.button3.UseVisualStyleBackColor = true;
@@ -148,6 +151,15 @@
             this.textBox1.Size = new System.Drawing.Size(137, 25);
             this.textBox1.TabIndex = 123;
             // 
+            // dataSetNW1
+            // 
+            this.dataSetNW1.DataSetName = "DataSetNW";
+            this.dataSetNW1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productsTableAdapter1
+            // 
+            this.productsTableAdapter1.ClearBeforeFill = true;
+            // 
             // FrmHW02
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -156,7 +168,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblResult);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewNW);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
@@ -166,7 +178,9 @@
             this.Controls.Add(this.textBox1);
             this.Name = "FrmHW02";
             this.Text = "FrmHW02";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FrmHW02_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNW)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetNW1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,7 +191,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewNW;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
@@ -185,5 +199,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
+        private DataSetNW dataSetNW1;
+        private DataSetNWTableAdapters.ProductsTableAdapter productsTableAdapter1;
     }
 }

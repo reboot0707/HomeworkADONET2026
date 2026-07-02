@@ -16,5 +16,11 @@ namespace HomeworkADONET2026.HW
         {
             InitializeComponent();
         }
+
+        private void FrmHW02_Load(object sender, EventArgs e)
+        {
+            this.productsTableAdapter1.Fill(this.dataSetNW1.Products);
+            this.dataGridViewNW.DataSource = this.dataSetNW1.Products;
+        }
     }
 }
