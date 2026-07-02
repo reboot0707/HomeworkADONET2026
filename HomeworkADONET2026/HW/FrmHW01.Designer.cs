@@ -82,6 +82,7 @@
             // 
             // comboQueryCategory
             // 
+            this.comboQueryCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboQueryCategory.Font = new System.Drawing.Font("微軟正黑體", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.comboQueryCategory.FormattingEnabled = true;
             this.comboQueryCategory.Location = new System.Drawing.Point(237, 68);
