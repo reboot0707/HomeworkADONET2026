@@ -30,7 +30,7 @@
         {
             this.lblResult = new System.Windows.Forms.Label();
             this.dataGridViewResult = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonSort = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -74,15 +74,16 @@
             this.dataGridViewResult.Size = new System.Drawing.Size(1060, 559);
             this.dataGridViewResult.TabIndex = 131;
             // 
-            // button2
+            // buttonSort
             // 
-            this.button2.Location = new System.Drawing.Point(520, 59);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(124, 42);
-            this.button2.TabIndex = 130;
-            this.button2.Text = "排序";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonSort.Location = new System.Drawing.Point(520, 59);
+            this.buttonSort.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonSort.Name = "buttonSort";
+            this.buttonSort.Size = new System.Drawing.Size(124, 42);
+            this.buttonSort.TabIndex = 130;
+            this.buttonSort.Text = "排序";
+            this.buttonSort.UseVisualStyleBackColor = true;
+            this.buttonSort.Click += new System.EventHandler(this.buttonSort_Click);
             // 
             // label3
             // 
@@ -142,6 +143,7 @@
             this.dateTimePickerEnd.Name = "dateTimePickerEnd";
             this.dateTimePickerEnd.Size = new System.Drawing.Size(177, 22);
             this.dateTimePickerEnd.TabIndex = 124;
+            this.dateTimePickerEnd.Value = new System.DateTime(2006, 12, 31, 0, 0, 0, 0);
             // 
             // dateTimePickerStart
             // 
@@ -150,6 +152,7 @@
             this.dateTimePickerStart.Name = "dateTimePickerStart";
             this.dateTimePickerStart.Size = new System.Drawing.Size(177, 22);
             this.dateTimePickerStart.TabIndex = 123;
+            this.dateTimePickerStart.Value = new System.DateTime(2004, 1, 1, 0, 0, 0, 0);
             // 
             // dataSetNW1
             // 
@@ -184,7 +187,7 @@
             this.ClientSize = new System.Drawing.Size(1119, 779);
             this.Controls.Add(this.lblResult);
             this.Controls.Add(this.dataGridViewResult);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonSort);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
@@ -206,7 +209,7 @@
 
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.DataGridView dataGridViewResult;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonSort;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;

@@ -12,6 +12,9 @@ namespace HomeworkADONET2026.HW
 {
     public partial class FrmHW03 : Form
     {
+        DataView dvPPD = null;
+        bool sortStat = false;
+
         public FrmHW03()
         {
             InitializeComponent();
@@ -22,7 +25,7 @@ namespace HomeworkADONET2026.HW
             try
             {
                 prodPhotoDateTableAdapter1.Fill(this.dataSetAW1.ProdPhotoDate);
-                DataView dvPPD = new DataView(this.dataSetAW1.ProdPhotoDate);
+                dvPPD = new DataView(this.dataSetAW1.ProdPhotoDate);
                 DateTime startdate = dateTimePickerStart.Value;
                 DateTime enddate = dateTimePickerEnd.Value;
 
@@ -34,8 +37,14 @@ namespace HomeworkADONET2026.HW
                     HeaderText = "照片",
                     ImageLayout = DataGridViewImageCellLayout.Zoom
                 });
+                dataGridViewResult.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    DataPropertyName = "SellStartDate",
+                    HeaderText = "開始銷售日期"
+                });
                 dataGridViewResult.RowTemplate.Height = 200;
-                //dvPPD.RowFilter = $"SellStartDate >= {startdate:MM/dd/yyyy} AND SellEndDate <= {enddate:MM/dd/yyyy}";
+                dvPPD.RowFilter = $"SellStartDate >= #{startdate:MM/dd/yyyy}# AND "
+                                + $"SellEndDate <= #{enddate:MM/dd/yyyy}#";
                 dataGridViewResult.DataSource = dvPPD;
 
                 lblResult.Text = $"結果 ( {dvPPD.Count} 筆)";
@@ -43,6 +52,23 @@ namespace HomeworkADONET2026.HW
             catch (Exception ex)
             { 
                 MessageBox.Show($"{ex.GetType()}: {ex.Message}"); 
+            }
+        }
+
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            if( dvPPD != null )
+            {
+                if (sortStat)
+                {
+                    dvPPD.Sort = "SellStartDate ASC";
+                    dataGridViewResult.DataSource = dvPPD;
+                }
+                else
+                {
+                    dvPPD.Sort = "SellStartDate DESC";
+                    dataGridViewResult.DataSource = dvPPD;
+                }
             }
         }
     }
