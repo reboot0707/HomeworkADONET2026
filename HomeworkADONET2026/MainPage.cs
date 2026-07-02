@@ -7,14 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HomeworkADONET2026.HW;
 
 namespace HomeworkADONET2026
 {
-    public partial class Form1 : Form
+    public partial class MainPage : Form
     {
-        public Form1()
+        public MainPage()
         {
             InitializeComponent();
+        }
+
+        private void buttonOpenHW01_Click(object sender, EventArgs e)
+        {
+            (new FrmHW01()).Show();
         }
     }
 }

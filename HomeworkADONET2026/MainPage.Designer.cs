@@ -1,6 +1,6 @@
 ﻿namespace HomeworkADONET2026
 {
-    partial class Form1
+    partial class MainPage
     {
         /// <summary>
         /// 設計工具所需的變數。
@@ -28,13 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.buttonOpenHW01 = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // buttonOpenHW01
+            // 
+            this.buttonOpenHW01.Location = new System.Drawing.Point(53, 27);
+            this.buttonOpenHW01.Name = "buttonOpenHW01";
+            this.buttonOpenHW01.Size = new System.Drawing.Size(293, 73);
+            this.buttonOpenHW01.TabIndex = 0;
+            this.buttonOpenHW01.Text = "作業1";
+            this.buttonOpenHW01.UseVisualStyleBackColor = true;
+            this.buttonOpenHW01.Click += new System.EventHandler(this.buttonOpenHW01_Click);
+            // 
+            // MainPage
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Controls.Add(this.buttonOpenHW01);
+            this.Name = "MainPage";
+            this.Text = "MainPage";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button buttonOpenHW01;
     }
 }
 
