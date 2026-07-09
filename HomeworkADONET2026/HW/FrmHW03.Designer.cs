@@ -32,7 +32,7 @@
             this.dataGridViewResult = new System.Windows.Forms.DataGridView();
             this.buttonSort = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxYear = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonSelectDate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -97,14 +97,17 @@
             this.label3.TabIndex = 129;
             this.label3.Text = "AWDataSetModel - ProductPhoto";
             // 
-            // comboBox1
+            // comboBoxYear
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(1089, 89);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(265, 23);
-            this.comboBox1.TabIndex = 128;
+            this.comboBoxYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxYear.FormattingEnabled = true;
+            this.comboBoxYear.Location = new System.Drawing.Point(1089, 89);
+            this.comboBoxYear.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.comboBoxYear.Name = "comboBoxYear";
+            this.comboBoxYear.Size = new System.Drawing.Size(265, 23);
+            this.comboBoxYear.TabIndex = 128;
+            this.comboBoxYear.DropDown += new System.EventHandler(this.comboBoxYear_DropDown);
+            this.comboBoxYear.SelectedIndexChanged += new System.EventHandler(this.comboBoxYear_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -190,13 +193,13 @@
             this.Controls.Add(this.dataGridViewResult);
             this.Controls.Add(this.buttonSort);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxYear);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonSelectDate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePickerEnd);
             this.Controls.Add(this.dateTimePickerStart);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmHW03";
             this.Text = "FrmHW03";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResult)).EndInit();
@@ -213,7 +216,7 @@
         private System.Windows.Forms.DataGridView dataGridViewResult;
         private System.Windows.Forms.Button buttonSort;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxYear;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonSelectDate;
         private System.Windows.Forms.Label label1;
