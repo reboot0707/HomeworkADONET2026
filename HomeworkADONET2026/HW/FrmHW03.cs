@@ -18,14 +18,40 @@ namespace HomeworkADONET2026.HW
         public FrmHW03()
         {
             InitializeComponent();
+            try
+            {
+                prodPhotoDateTableAdapter1.Fill(this.dataSetAW1.ProdPhotoDate);
+                dvPPD = new DataView(this.dataSetAW1.ProdPhotoDate);
+
+                DateTime? minStart = null;
+
+                foreach (DataRowView rowView in dvPPD)
+                {
+                    if (rowView["SellStartDate"] == DBNull.Value)
+                    { 
+                        continue;
+                    }
+
+                    DateTime sdate = Convert.ToDateTime(rowView["SellStartDate"]);
+
+                    if (minStart == null || sdate < minStart)
+                        minStart = sdate;
+                }
+
+                dateTimePickerStart.Value = (DateTime)minStart;
+                dateTimePickerEnd.Value = DateTime.Now;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.GetType()}: {ex.Message}");
+            }
         }
 
         private void buttonSelectDate_Click(object sender, EventArgs e)
         {
             try
             {
-                prodPhotoDateTableAdapter1.Fill(this.dataSetAW1.ProdPhotoDate);
-                dvPPD = new DataView(this.dataSetAW1.ProdPhotoDate);
+
                 DateTime startdate = dateTimePickerStart.Value;
                 DateTime enddate = dateTimePickerEnd.Value;
 
@@ -42,9 +68,18 @@ namespace HomeworkADONET2026.HW
                     DataPropertyName = "SellStartDate",
                     HeaderText = "開始銷售日期"
                 });
+                dataGridViewResult.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    DataPropertyName = "SellEndDate",
+                    HeaderText = "結束銷售日期"
+                });
                 dataGridViewResult.RowTemplate.Height = 200;
-                dvPPD.RowFilter = $"SellStartDate >= #{startdate:MM/dd/yyyy}# AND "
-                                + $"SellEndDate <= #{enddate:MM/dd/yyyy}#";
+                // 產品有開始銷售
+                // 而且開賣時間不晚於查詢結束日
+                // 而且產品尚未停售，或停售時間不早於查詢開始日
+                dvPPD.RowFilter = $"SellStartDate IS NOT NULL AND " 
+                                + $"SellStartDate <= #{enddate:MM/dd/yyyy}# AND "
+                                + $"(SellEndDate IS NULL OR SellEndDate >= #{startdate:MM/dd/yyyy}#)";
                 dataGridViewResult.DataSource = dvPPD;
 
                 lblResult.Text = $"結果 ( {dvPPD.Count} 筆)";
@@ -63,11 +98,13 @@ namespace HomeworkADONET2026.HW
                 {
                     dvPPD.Sort = "SellStartDate ASC";
                     dataGridViewResult.DataSource = dvPPD;
+                    sortStat = !sortStat;
                 }
                 else
                 {
                     dvPPD.Sort = "SellStartDate DESC";
                     dataGridViewResult.DataSource = dvPPD;
+                    sortStat = !sortStat;
                 }
             }
         }
