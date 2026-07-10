@@ -7,6 +7,8 @@ on:
       # Add more branches here when needed, for example:
       # - main
       # - release/*
+    tags:
+      - 'v*'
   # This is an internal repository, so pull requests may build and publish
   # downloadable artifacts for validation.
   pull_request:
@@ -18,7 +20,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 env:
   PROJECT_PATH: HomeworkADONET2026\HomeworkADONET2026.csproj
@@ -115,3 +117,40 @@ jobs:
           name: ${{ steps.metadata.outputs.artifact_name }}
           path: ${{ steps.package.outputs.staging_dir }}
           if-no-files-found: error
+
+      - name: Create release archive
+        if: startsWith(github.ref, 'refs/tags/')
+        id: release_archive
+        shell: pwsh
+        run: |
+          $releaseRoot = Join-Path $env:GITHUB_WORKSPACE 'release'
+          New-Item -ItemType Directory -Force -Path $releaseRoot | Out-Null
+
+          $archivePath = Join-Path $releaseRoot "${env:APP_NAME}-${env:GITHUB_REF_NAME}.zip"
+          if (Test-Path -Path $archivePath -PathType Leaf) {
+            Remove-Item -Path $archivePath -Force
+          }
+
+          Compress-Archive `
+            -Path (Join-Path '${{ steps.package.outputs.staging_dir }}' '*') `
+            -DestinationPath $archivePath
+
+          "archive_path=$archivePath" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+
+      - name: Detect prerelease tag
+        if: startsWith(github.ref, 'refs/tags/')
+        id: release_type
+        shell: pwsh
+        run: |
+          $isPrerelease = $env:GITHUB_REF_NAME -match '-(alpha|beta|rc)(\.|-|$)'
+          "prerelease=$($isPrerelease.ToString().ToLowerInvariant())" |
+            Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }}
+          prerelease: ${{ steps.release_type.outputs.prerelease }}
+          files: ${{ steps.release_archive.outputs.archive_path }}
