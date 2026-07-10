@@ -76,7 +76,6 @@ jobs:
         run: |
           $artifactRoot = Join-Path $env:GITHUB_WORKSPACE 'artifacts'
           $stagingDir = Join-Path $artifactRoot $env:APP_NAME
-          $zipPath = Join-Path $artifactRoot "$env:ARTIFACT_NAME.zip"
 
           New-Item -ItemType Directory -Force -Path $stagingDir | Out-Null
 
@@ -108,13 +107,11 @@ jobs:
               Copy-Item -LiteralPath $_.FullName -Destination $destinationPath -Force
             }
 
-          Compress-Archive -Path (Join-Path $stagingDir '*') -DestinationPath $zipPath -Force
-          "zip_path=$zipPath" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+          "staging_dir=$stagingDir" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
 
       - name: Upload artifact
         uses: actions/upload-artifact@v7
         with:
           name: ${{ steps.metadata.outputs.artifact_name }}
-          path: ${{ steps.package.outputs.zip_path }}
+          path: ${{ steps.package.outputs.staging_dir }}
           if-no-files-found: error
-          compression-level: 0
